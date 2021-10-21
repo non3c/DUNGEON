@@ -1,5 +1,5 @@
 void gameover() {
-
+/*
   if (score == 100) {
     //Winning
     //remove all the objects
@@ -59,4 +59,5 @@ if (mouseX > width/3 - buttonSize + 200 && mouseX < width/3 + buttonSize - 200 &
     } else {
       image(exitButton[0], width/1.5, height/1.15, buttonSize+5, buttonSize-245);
     }
+    */
 }

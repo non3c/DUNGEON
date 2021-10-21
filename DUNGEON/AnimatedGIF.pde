@@ -1,35 +1,76 @@
-class AnimatedGif {
+class AnimatedGIF {
  //instance variables
- int s;
+ int size;
+ int rate;
  int currFrame;
  PImage[] gif;
  float posx, posy;
  float w, h;
- AnimatedGif(int arraySize, String prefix, String suffix, float _x, float _y, float _w, float _h) {
+ String prefix, suffix;
+ int f;
+ int frameNumber;
+ 
+ AnimatedGIF(int arraySize, String p, String s, float _x, float _y, float _w, float _h) {
   //constructor 
-
-   s = arraySize;
+   size = arraySize;
    posx = _x;
    posy = _y;
    w = _w;
    h = _h;
-   String p = prefix;
-   String t = suffix;
-   gif = new PImage[s];
-   for (int i = 0; i < s; i ++) {
-     gif[i] = loadImage(p+i+t);
+   rate = 1;
+   prefix = p;
+   suffix = s;
+   gif = new PImage[size];
+   for (int i = 0; i < size; i ++) {
+   gif[i] = loadImage(prefix+i+suffix);
    }
    currFrame = 0 ;
   
   
  }
  
- 
+  AnimatedGIF(int arraySize, int r, String p, String s, float _x, float _y, float _w, float _h) {
+  //constructor 
+   size = arraySize;
+   posx = _x;
+   posy = _y;
+   w = _w;
+   h = _h;
+   rate = r;
+   prefix = p;
+   suffix = s;
+   gif = new PImage[size];
+   for (int i = 0; i < size; i ++) {
+   gif[i] = loadImage(prefix+i+suffix);
+   }
+   currFrame = 0 ;
+
+  
+  
+ }
  void show() {
  //behaviour function
-   if (currFrame == s) currFrame = 0;
-     image(gif[currFrame], posx, posy, w, h);
-     currFrame ++;
+    if (currFrame >= gif.length) currFrame = 0;
+    image(gif[currFrame], posx, posy, w, h);
+    if (frameCount % rate == 0) currFrame++;
    
  }
+  /*void loadgif(String prefix, String suffix) {
+    int i = 0;
+    while (i < gif.length) {
+      String leadingZero = "";
+      if (gif.length <= 10) leadingZero = "";
+      else if (gif.length <= 100) {
+        if (i < 10) leadingZero = "0";
+        else leadingZero = "";
+      } else if (gif.length > 100) {
+        if (i < 10) leadingZero = "00";
+        else if (i < 100) leadingZero = "0";
+        else leadingZero = "";
+      }
+      gif[i] = loadImage(prefix+leadingZero+i+suffix);
+      i++;
+    }
+  }
+  */
 }
