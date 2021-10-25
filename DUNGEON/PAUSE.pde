@@ -1,5 +1,0 @@
-//pause screen
-void pause() {
-  
-  
-}
