@@ -4,7 +4,9 @@ Buttons startButton;
 Hero myHero;
 ArrayList<GameObject> myObjects;
 PFont AncientModernTales;
-
+PImage room;
+PImage map;
+color northRoom, eastRoom, southRoom, westRoom;
 int mode = 0;
 
 //color pallete
@@ -29,12 +31,11 @@ boolean mouseReleased;
 
 void setup() {
   imageMode(CENTER);
-  size(1200, 800, FX2D);
+  size(1200, 750, FX2D);
   AncientModernTales = createFont("Fonts/AncientModernTales.ttf", 64);
   introBackground = new AnimatedGIF(20, 4, "GIF/frame_", "_delay-0.1s.png",  width/2, height/2, width, height);
-  startButton = new Buttons(width/2, height/1.3, 300, 150, GREY, VIOLET, "START" );
-  introBackground = new AnimatedGIF(20, 4, "GIF/frame_", "_delay-0.1s.png",  width/2, height/2, width, height);
-   
+  startButton = new Buttons(width/2, height/1.3, 300, 150, VIOLET, WHITE, "START" );
+  room = loadImage("room.png");
    myObjects = new ArrayList<GameObject>();
    myHero = new Hero();
    myObjects.add(myHero);

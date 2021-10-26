@@ -17,8 +17,3 @@ void keyReleased() {
  if (keyCode == ' ')    spacekey = false;    
  if (keyCode == 'P')       pause = false;
 }
-
-void Interactions() {
-
-  
-}

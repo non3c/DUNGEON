@@ -5,10 +5,12 @@ class Hero extends GameObject {
  
  Hero() {
   super(); 
+   hp = 3;
    speed = 5;
    roomX = 1;
    roomY = 1;
  }
+ 
  void show() {
    fill(VIOLET);
    stroke(DARKGREY);
@@ -23,6 +25,7 @@ class Hero extends GameObject {
  if (leftkey) vel.x = -speed;
  if (downkey) vel.y = speed;
  if (rightkey) vel.x = speed;
+
  
  if(!upkey && !downkey) vel.y = vel.y*0.75;
  if(!leftkey && !rightkey) vel.x = vel.x*0.75;

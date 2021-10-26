@@ -1,10 +1,13 @@
 void game() {
-    drawRoom();
-    drawGameObjects();
+  drawRoom();
+  drawGameObjects();
+    
+    
 }
 
 void drawRoom() {
-  background(DARKBROWN);
+  imageMode(CENTER);
+  image(room, width/2, height/2, width, height);
   
   //corners
   stroke(BLACK);
@@ -12,8 +15,13 @@ void drawRoom() {
   line(0, 0, width, height);
   line(width, 0, 0, height);
   
+  //draw exits
+  //northRoom = map.get(myHero.roomX, myHero.roomY-1);
+  //eastRoom  = map.get(myHero.roomX+1, myHero.roomY);
+  //southRoom = map.get(myHero.roomX, myHero.roomY+1);
+  //westRoom = map.get(myHero.roomX-1, myHero.roomY);
   //floor
-  rectMode(CENTER);
+  imageMode(CENTER);
   stroke(BLACK);
   fill(DARKGREEN);
   rect(width/2, height/2, width*0.8, height*0.8);
