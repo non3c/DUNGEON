@@ -41,7 +41,7 @@ class Buttons {
       rect(pos.x, pos.y, size.x-5, size.y-5, 20);
       fill(unhoverColor);
       textSize(size.x/4);
-      text(text, pos.x, pos.y);
+      text(text, pos.x, pos.y+20);
 
       
     } else {
@@ -49,7 +49,7 @@ class Buttons {
         rect(pos.x, pos.y, size.x, size.y, 20);
         fill(hoverColor);
         textSize(size.x/4);
-        text(text, pos.x, pos.y);
+        text(text, pos.x, pos.y+20);
       }
     if (mouseReleased && mouseX > pos.x-size.x/2 && mouseX < pos.x+size.x/2 && mouseY > pos.y-size.y/2 && mouseY < pos.y+size.y/2) {
       clicked = true;

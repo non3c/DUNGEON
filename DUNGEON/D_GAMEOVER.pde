@@ -3,8 +3,8 @@ void gameover() {
   if (score == 100) {
     //Winning
     //remove all the objects
-     for (int i = 0; i < myObject.size(); i ++) {
-      myObject.remove(i);
+     for (int i = 0; i < myObjects.size(); i ++) {
+      myObjects.remove(i);
     }
     //background
     gameoverScreen[0].resize(width, height);
@@ -27,8 +27,8 @@ void gameover() {
   else {
     //losing
     //remove all the objects
-    for (int i = 0; i < myObject.size(); i ++) {
-      myObject.remove(i);
+    for (int i = 0; i < myObjects.size(); i ++) {
+      myObjects.remove(i);
     }
     //background
     gameoverScreen[1].resize(width, height);
