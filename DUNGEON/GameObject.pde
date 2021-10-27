@@ -21,8 +21,8 @@ class GameObject {
 
     if (pos.x < width*0.1) pos.x = width*0.1;
     if (pos.x > width*0.9) pos.x = width*0.9;
-    if (pos.y < height*0.1) pos.x = height*0.1;
-    if (pos.y < height*0.9) pos.x = height*0.9;
+    if (pos.y < height*0.1) pos.y = height*0.1;
+    if (pos.y > height*0.9) pos.y = height*0.9;
     
     
   }

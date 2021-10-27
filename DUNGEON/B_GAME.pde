@@ -16,10 +16,25 @@ void drawRoom() {
   line(width, 0, 0, height);
   
   //draw exits
-  //northRoom = map.get(myHero.roomX, myHero.roomY-1);
-  //eastRoom  = map.get(myHero.roomX+1, myHero.roomY);
-  //southRoom = map.get(myHero.roomX, myHero.roomY+1);
-  //westRoom = map.get(myHero.roomX-1, myHero.roomY);
+  northRoom = map.get(myHero.roomX, myHero.roomY-1);
+  eastRoom  = map.get(myHero.roomX+1, myHero.roomY);
+  southRoom = map.get(myHero.roomX, myHero.roomY+1);
+  westRoom  = map.get(myHero.roomX-1, myHero.roomY);
+  noStroke();
+  fill(BLACK);
+  if (northRoom != #686868) {
+   ellipse(width/2, height*0.1, 100, 100);
+  }
+  if (southRoom != #686868) {
+   ellipse(width/2, height*0.9, 100, 100);
+  }
+  if (eastRoom != #686868) {
+   ellipse(width*0.9, height/2, 100, 100);
+  }
+  if (westRoom != #686868) {
+   ellipse(width*0.1, height/2, 100, 100);
+  }
+
   //floor
   imageMode(CENTER);
   stroke(BLACK);
