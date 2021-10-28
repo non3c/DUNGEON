@@ -13,7 +13,7 @@ class Hero extends GameObject {
  
  void show() {
    fill(VIOLET);
-   stroke(DARKGREY);
+   stroke(DARKBROWN);
    strokeWeight(2);
    ellipse(pos.x, pos.y, 40,40);
  }

@@ -39,7 +39,7 @@ void drawRoom() {
   //floor
   imageMode(CENTER);
   stroke(BLACK);
-  fill(DARKGREEN);
+  fill(DARKBROWN);
   rect(width/2, height/2, width*0.8, height*0.8);
 }
 

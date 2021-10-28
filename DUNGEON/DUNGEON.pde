@@ -13,7 +13,7 @@ int mode = 0;
 //color pallete
 color VIOLET       = #6D6479;
 color GREY         = #484452;
-color DARKGREY     = #302E3B;
+color DARKPURPLE    = #302E3B;
 color PURPLE       = #412E4C;
 color VELVET       = #7C425B;
 color WHITE        = #EEE4D8;
@@ -50,11 +50,10 @@ void setup() {
   
   int x = 0, y = 0;
   for (int i = 0; i <= width; i ++) {
-    x = i;
-    darkness.add(new DarknessCell(x, y, size));
-    if (x >= width && y >=height) {
+    darkness.add(new DarknessCell(i, y, size));
+    if (i >= width) {
       y --; 
-      x = 0;
+      i = 0;
     }
     else {break;}
   }
