@@ -1,8 +1,9 @@
 void game() {
   drawRoom();
   drawGameObjects();
-    
-    
+  drawLightLayer();
+  drawMinimap();
+  
 }
 
 void drawRoom() {
@@ -52,5 +53,19 @@ void drawGameObjects() {
     i--;
    }
   }
+}
+
+
+void drawMinimap() {
+ 
+ image(map, 100, 100);
+  
+}
+void drawLightLayer() {
+  for (int i = 0; i < darkness.size(); i ++) {
+   DarknessCell dark = darkness.get(i);
+   dark.show();
+
+   }
 }
  

@@ -3,6 +3,7 @@ AnimatedGIF introBackground;
 Buttons startButton;
 Hero myHero;
 ArrayList<GameObject> myObjects;
+ArrayList<DarknessCell> darkness; 
 PFont AncientModernTales;
 PImage room;
 PImage map;
@@ -35,11 +36,28 @@ void setup() {
   AncientModernTales = createFont("Fonts/AncientModernTales.ttf", 64);
   introBackground = new AnimatedGIF(20, 4, "GIF/frame_", "_delay-0.1s.png", width/2, height/2, width, height);
   startButton = new Buttons(width/2, height/1.3, 300, 150, VIOLET, WHITE, "START" );
-  room = loadImage("room1.png");
+  room = loadImage("room.png");
   map = loadImage("map.png");
+  
+  //Create Objects
   myObjects = new ArrayList<GameObject>();
   myHero = new Hero();
   myObjects.add(myHero);
+
+  //Create Darkness
+  darkness = new ArrayList<DarknessCell>();
+  float size = 1;
+  
+  int x = 0, y = 0;
+  for (int i = 0; i <= width; i ++) {
+    x = i;
+    darkness.add(new DarknessCell(x, y, size));
+    if (x >= width && y >=height) {
+      y --; 
+      x = 0;
+    }
+    else {break;}
+  }
 }
 
 void draw() {
