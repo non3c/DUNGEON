@@ -8,11 +8,11 @@ void game() {
 
 void drawRoom() {
   imageMode(CENTER);
-  image(room, width/2, height/2, width, height);
+  image(walls, width/2, height/2, width, height);
   
   //corners
   stroke(BLACK);
-  strokeWeight(8);
+  strokeWeight(10);
   line(0, 0, width, height);
   line(width, 0, 0, height);
   
@@ -38,9 +38,7 @@ void drawRoom() {
 
   //floor
   imageMode(CENTER);
-  stroke(BLACK);
-  fill(DARKBROWN);
-  rect(width/2, height/2, width*0.8, height*0.8);
+  image(floor,width/2, height/2, width*0.8, height*0.8);
 }
 
 void drawGameObjects() {
@@ -57,8 +55,7 @@ void drawGameObjects() {
 
 
 void drawMinimap() {
- 
- image(map, 100, 100);
+
   
 }
 void drawLightLayer() {

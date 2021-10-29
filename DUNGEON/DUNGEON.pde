@@ -5,7 +5,8 @@ Hero myHero;
 ArrayList<GameObject> myObjects;
 ArrayList<DarknessCell> darkness; 
 PFont AncientModernTales;
-PImage room;
+PImage walls;
+PImage floor;
 PImage map;
 color northRoom, eastRoom, southRoom, westRoom;
 int mode = 0;
@@ -32,13 +33,15 @@ boolean mouseReleased;
 
 void setup() {
   imageMode(CENTER);
+  frameRate(60);
   size(1200, 800, FX2D);
   AncientModernTales = createFont("Fonts/AncientModernTales.ttf", 64);
   introBackground = new AnimatedGIF(20, 4, "GIF/frame_", "_delay-0.1s.png", width/2, height/2, width, height);
   startButton = new Buttons(width/2, height/1.3, 300, 150, VIOLET, WHITE, "START" );
-  room = loadImage("room.png");
+  walls = loadImage("walls.png");
+  floor = loadImage("floor.png");
   map = loadImage("map.png");
-  
+
   //Create Objects
   myObjects = new ArrayList<GameObject>();
   myHero = new Hero();
@@ -46,16 +49,19 @@ void setup() {
 
   //Create Darkness
   darkness = new ArrayList<DarknessCell>();
-  float size = 1;
-  
+  float size = 5;
+
   int x = 0, y = 0;
-  for (int i = 0; i <= width; i ++) {
-    darkness.add(new DarknessCell(i, y, size));
-    if (i >= width) {
-      y --; 
-      i = 0;
-    }
-    else {break;}
+  while (x <= width) {
+    darkness.add(new DarknessCell(x, y, size));
+    if (x >= width) {
+      y = y + 5; 
+      x = 0;
+    } 
+    x = x + 5;
+    if (y-5 >= height) break;
+    println(y +" "+ x); 
+    
   }
 }
 
