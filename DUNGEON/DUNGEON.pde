@@ -35,6 +35,8 @@ void setup() {
   imageMode(CENTER);
   frameRate(60);
   size(1200, 800, FX2D);
+  smooth();
+  
   AncientModernTales = createFont("Fonts/AncientModernTales.ttf", 64);
   introBackground = new AnimatedGIF(20, 4, "GIF/frame_", "_delay-0.1s.png", width/2, height/2, width, height);
   startButton = new Buttons(width/2, height/1.3, 300, 150, VIOLET, WHITE, "START" );
