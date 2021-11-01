@@ -55,6 +55,20 @@ void drawGameObjects() {
 
 
 void drawMinimap() {
+  minimap = new ArrayList();
+  
+  int size = 50;
+  int x = 0, y = 0;
+  while (y < map.height) {
+    color c = map.get(x,y);
+    fill(c);
+    square(x*10,y*10,size);
+    x = x + 1;
+    if (x >= map.width) {
+      x = 0;
+      y = y + 1; 
+    } 
+  }
 
   
 }

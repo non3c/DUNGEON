@@ -4,7 +4,8 @@ Buttons startButton;
 Hero myHero;
 ArrayList<GameObject> myObjects;
 ArrayList<DarknessCell> darkness; 
-PFont AncientModernTales;
+ArrayList minimap;
+PFont AncientModernTales, NineteenNinetySeven;
 PImage walls;
 PImage floor;
 PImage map;
@@ -38,8 +39,10 @@ void setup() {
   smooth();
   
   AncientModernTales = createFont("Fonts/AncientModernTales.ttf", 64);
-  introBackground = new AnimatedGIF(20, 4, "GIF/frame_", "_delay-0.1s.png", width/2, height/2, width, height);
-  startButton = new Buttons(width/2, height/1.3, 300, 150, VIOLET, WHITE, "START" );
+  NineteenNinetySeven = createFont("Fonts/NineteenNinetySeven.ttf", 64);
+  introBackground = new AnimatedGIF(20, 4, "GIF/frame_", "_delay-0.1s.png", width/2, height/2, width+200, height);
+  startButton = new Buttons(width/2, height/1.3, 300, 150, VIOLET, WHITE, "START", AncientModernTales);
+  
   walls = loadImage("walls.png");
   floor = loadImage("floor.png");
   map = loadImage("map.png");
@@ -51,19 +54,17 @@ void setup() {
 
   //Create Darkness
   darkness = new ArrayList<DarknessCell>();
-  float size = 5;
+  int size = 10;
 
   int x = 0, y = 0;
   while (x <= width) {
     darkness.add(new DarknessCell(x, y, size));
     if (x >= width) {
-      y = y + 5; 
-      x = 0;
+      y = y + size; 
+      x = -size;
     } 
-    x = x + 5;
-    if (y-5 >= height) break;
-    println(y +" "+ x); 
-    
+    x = x + size;
+    if (y -size >= height) break;    
   }
 }
 
