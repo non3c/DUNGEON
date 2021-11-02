@@ -6,9 +6,12 @@ ArrayList<GameObject> myObjects;
 ArrayList<DarknessCell> darkness; 
 ArrayList minimap;
 PFont AncientModernTales, NineteenNinetySeven;
+//room PImages
 PImage walls;
 PImage floor;
+PImage doors;
 PImage map;
+
 color northRoom, eastRoom, southRoom, westRoom;
 int mode = 0;
 
@@ -45,6 +48,7 @@ void setup() {
   
   walls = loadImage("walls.png");
   floor = loadImage("floor.png");
+  doors = loadImage("dooropen.png");
   map = loadImage("map.png");
 
   //Create Objects
@@ -59,11 +63,12 @@ void setup() {
   int x = 0, y = 0;
   while (x <= width) {
     darkness.add(new DarknessCell(x, y, size));
+    x = x + size;
     if (x >= width) {
       y = y + size; 
-      x = -size;
+      x = 0;
     } 
-    x = x + size;
+    
     if (y -size >= height) break;    
   }
 }

@@ -24,19 +24,24 @@ void drawRoom() {
   noStroke();
   fill(BLACK);
   if (northRoom != #686868) {
-   ellipse(width/2, height*0.1, 100, 100);
+  
+   image(doors, width/2, height*0.05, 125, 100);
   }
   if (southRoom != #686868) {
-   ellipse(width/2, height*0.9, 100, 100);
+   
+   image(doors, width/2, height*0.95, 125, 100);
   }
   if (eastRoom != #686868) {
-   ellipse(width*0.9, height/2, 100, 100);
+   
+   image(doors, width*0.95, height/2, 125, 100);
   }
   if (westRoom != #686868) {
-   ellipse(width*0.1, height/2, 100, 100);
+ 
+   image(doors, width*0.05, height/2, 125, 100);
   }
 
   //floor
+  
   imageMode(CENTER);
   image(floor,width/2, height/2, width*0.8, height*0.8);
 }
@@ -57,19 +62,19 @@ void drawGameObjects() {
 void drawMinimap() {
   minimap = new ArrayList();
   
-  int size = 50;
+  int size = 20;
   int x = 0, y = 0;
   while (y < map.height) {
     color c = map.get(x,y);
-    fill(c);
-    square(x*10,y*10,size);
+    fill(c, 150);
+    square(950+x*size,50+y*size,size);
     x = x + 1;
     if (x >= map.width) {
       x = 0;
       y = y + 1; 
     } 
   }
-
+  rect(size);
   
 }
 void drawLightLayer() {
