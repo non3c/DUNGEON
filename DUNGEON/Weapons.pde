@@ -20,12 +20,15 @@ class Weapons {
     shotTimer++;
   }
 
-  void shoot() {
+  void shoot(int bulletNum, int spread) {
+    for (int i = 0; i <= bulletNum; i ++) {
     if (shotTimer >= threshold) {
       PVector aimVector = new PVector(mouseX-myHero.pos.x, mouseY-myHero.pos.y);
       aimVector.setMag(bulletSpeed);
-      //myObject.add(new Bullets(aimVector, WHITE, 10));
+      PVector bulletSpread = new PVector(random(-spread, spread),random(-spread, spread));
+      myObjects.add(new Bullets(aimVector.add(bulletSpread), WHITE, 20));
       shotTimer = 0;
+     }
     }
   }
 }

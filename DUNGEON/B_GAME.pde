@@ -21,22 +21,17 @@ void drawRoom() {
   eastRoom  = map.get(myHero.roomX+1, myHero.roomY);
   southRoom = map.get(myHero.roomX, myHero.roomY+1);
   westRoom  = map.get(myHero.roomX-1, myHero.roomY);
-  noStroke();
-  fill(BLACK);
-  if (northRoom != #686868) {
-  
+
+  if (northRoom != #848484) {  
    image(doors, width/2, height*0.05, 125, 100);
   }
-  if (southRoom != #686868) {
-   
+  if (southRoom != #848484) {
    image(doors, width/2, height*0.95, 125, 100);
   }
-  if (eastRoom != #686868) {
-   
+  if (eastRoom != #848484) {
    image(doors, width*0.95, height/2, 125, 100);
   }
-  if (westRoom != #686868) {
- 
+  if (westRoom != #848484) {
    image(doors, width*0.05, height/2, 125, 100);
   }
 
@@ -61,12 +56,17 @@ void drawGameObjects() {
 
 void drawMinimap() {
   minimap = new ArrayList();
+  fill(#8E0000, 100);
+  stroke(#580000);
+  strokeWeight(5);
+  rect(940, 40, 220, 220);
   
   int size = 20;
   int x = 0, y = 0;
   while (y < map.height) {
     color c = map.get(x,y);
-    fill(c, 150);
+    noStroke();
+    fill(c, 200);
     square(950+x*size,50+y*size,size);
     x = x + 1;
     if (x >= map.width) {
@@ -74,7 +74,8 @@ void drawMinimap() {
       y = y + 1; 
     } 
   }
-  rect(size);
+  
+  
   
 }
 void drawLightLayer() {
