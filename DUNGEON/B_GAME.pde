@@ -65,8 +65,12 @@ void drawMinimap() {
   int x = 0, y = 0;
   while (y < map.height) {
     color c = map.get(x,y);
-    noStroke();
+    
     fill(c, 200);
+    if (c != #848484) {
+      stroke(#481204);
+      strokeWeight(1);
+    } else noStroke();
     square(950+x*size,50+y*size,size);
     x = x + 1;
     if (x >= map.width) {
@@ -74,7 +78,10 @@ void drawMinimap() {
       y = y + 1; 
     } 
   }
-  
+  strokeWeight(2);
+  stroke(#FF9D6F);
+  fill(#FF9C50, 240);
+   rect(950+myHero.roomX*size,50+myHero.roomY*size, size, size);
   
   
 }

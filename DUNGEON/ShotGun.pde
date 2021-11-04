@@ -1,9 +1,5 @@
  class ShotGun extends Weapons {
   ShotGun() {
-   super(); 
-  }
-  
-  void shoot() {
-   super.shoot(5, 2); 
+   super(60, 2, 5, 1, 15, WHITE); 
   }
 }

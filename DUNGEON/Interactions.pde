@@ -1,4 +1,4 @@
-boolean upkey, downkey, leftkey, rightkey, spacekey, teleport, pause;
+boolean upkey, downkey, leftkey, rightkey, spacekey, pause;
 
 void keyPressed() {
  if (keyCode == 'W')       upkey = true;

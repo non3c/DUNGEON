@@ -15,5 +15,6 @@ class DarknessCell {
     fill(#000000, opacity);
     square(x,y,size); 
     opacity = map(dist(x, y, myHero.pos.x, myHero.pos.y), 0, 500, 50, 200); 
+    //opacity = map(dist(x, y, myObjects.pos.x, bullets.pos.y), 0, 500, 50, 200); 
   }
 }

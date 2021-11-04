@@ -21,9 +21,8 @@ class Buttons {
     clicked = false;
   }
 
-  Buttons(String pre, String suf, float x, float y, float w, float h, color hc, color uc, String t) {
+  Buttons(String pre, String suf, float x, float y, float w, float h) {
     //constructor 
-
     pos = new PVector(x, y);
     size = new PVector(w, h);
     prefix = pre;
