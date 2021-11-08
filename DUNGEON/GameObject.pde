@@ -1,8 +1,11 @@
 class GameObject {
    //global variables
-   int hp;
+   int roomX, roomY;
    PVector pos;
    PVector vel; 
+   int hp;
+   int size;
+   
   
   GameObject() {
     hp = 1;

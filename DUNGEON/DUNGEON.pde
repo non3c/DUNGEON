@@ -56,6 +56,7 @@ void setup() {
   myObjects = new ArrayList<GameObject>();
   myHero = new Hero();
   myObjects.add(myHero);
+  myObjects.add(new Enemy());
 
   //Create Darkness
   darkness = new ArrayList<DarknessCell>();

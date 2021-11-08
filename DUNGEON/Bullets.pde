@@ -2,6 +2,7 @@ class Bullets extends GameObject{
   // instance variables
   float size;
   PVector nudge;
+  PVector dir;
   color Bcolor;
 
   Bullets(PVector aim, color c, float s) {
@@ -9,6 +10,7 @@ class Bullets extends GameObject{
    hp = 1; 
    pos = new PVector (myHero.pos.x, myHero.pos.y);
    vel = new PVector (aim.x, aim.y);
+   dir = new PVector (aim.x, aim.y);
    // adjust the location
    nudge = aim.copy();
    nudge.rotate(PI);
@@ -18,15 +20,20 @@ class Bullets extends GameObject{
    vel.add(aim);
    size = s;
    Bcolor = c;
+   roomX = myHero.roomX;
+   roomY = myHero.roomY;
 }
 
 void show() {
   //appearence
+  pushMatrix();
+  translate(pos.x, pos.y);
+  rotate(dir.heading());
   stroke(#818181, 20);
   strokeWeight(1);
   fill(Bcolor);
-  ellipse(pos.x, pos.y, size, size);
-  
+  rect(pos.x, pos.y, size+5, size);
+  popMatrix();
   
 }
 

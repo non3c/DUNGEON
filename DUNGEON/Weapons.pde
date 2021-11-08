@@ -1,3 +1,4 @@
+
 class Weapons {
 
   int shotTimer;
@@ -7,7 +8,7 @@ class Weapons {
   color bulletColor;
   float bulletSize;
   float spread;
-
+  
   Weapons() {
     shotTimer = 0;
     threshold = 30;
@@ -31,6 +32,10 @@ class Weapons {
 
   void update() {
     shotTimer++;
+  }
+  
+  void show(int w) {
+
   }
 
   void shoot() {

@@ -1,7 +1,7 @@
 class Hero extends GameObject {
 
   float speed;
-  int roomX, roomY;
+  
   Weapons myWeapon;
 
   Hero() {
@@ -10,6 +10,7 @@ class Hero extends GameObject {
     speed = 5;
     roomX = 1;
     roomY = 1;
+    size = 40;
     myWeapon = new Pistol();
     //ArrayList<Weapons> weapons;
   }
@@ -18,7 +19,7 @@ class Hero extends GameObject {
     fill(VIOLET);
     stroke(DARKBROWN);
     strokeWeight(2);
-    ellipse(pos.x, pos.y, 40, 40);
+    ellipse(pos.x, pos.y, size, size);
   }
 
   void act() {
