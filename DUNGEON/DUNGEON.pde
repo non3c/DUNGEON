@@ -41,12 +41,12 @@ void setup() {
   frameRate(60);
   size(1200, 800, FX2D);
   smooth();
-  
+
   PixelBoy = createFont("Fonts/Pixeboy.ttf", 64);
   NineteenNinetySeven = createFont("Fonts/NineteenNinetySeven.ttf", 64);
   introBackground = new AnimatedGIF(20, 4, "GIF/frame_", "_delay-0.1s.png", width/2, height/2, width+200, height);
   startButton = new Buttons(width/2, height/1.3, 300, 150, VIOLET, WHITE, "START", PixelBoy);
-  
+
   walls = loadImage("walls.png");
   floor = loadImage("floor.png");
   doors = loadImage("dooropen.png");
@@ -56,7 +56,7 @@ void setup() {
   myObjects = new ArrayList<GameObject>();
   myHero = new Hero();
   myObjects.add(myHero);
-  myObjects.add(new Enemy());
+  myObjects.add(new Minotaur(2, 1));
 
   //Create Darkness
   darkness = new ArrayList<DarknessCell>();
@@ -70,8 +70,8 @@ void setup() {
       y = y + size; 
       x = 0;
     } 
-    
-    if (y -size >= height) break;    
+
+    if (y -size >= height) break;
   }
 }
 

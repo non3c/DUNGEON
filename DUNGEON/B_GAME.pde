@@ -23,33 +23,33 @@ void drawRoom() {
 
 
   if (northRoom != #848484) { 
-    pushMatrix();
-    rotate(0);
-    translate(width/2, height*0.05);
+   // pushMatrix();
+   // rotate(0);
+   // translate(width/2, height*0.05);
     image(doors, width/2, height*0.05, 125, 100);
-    popMatrix();
+   // popMatrix();
   }
 
   if (southRoom != #848484) {
-    pushMatrix();
-    rotate(PI);
-    translate(width/2, height*0.95);
+    //pushMatrix();
+    //rotate(PI);
+   // translate(width/2, height*0.95);
     image(doors, width/2, height*0.95, 125, 100);
-    popMatrix();
+   // popMatrix();
   }
   if (eastRoom != #848484) {
-    pushMatrix();
-    rotate(PI/0.75);
-    translate(width*0.95, height/2);
+   // pushMatrix();
+   // rotate(PI/0.75);
+   // translate(width*0.95, height/2);
     image(doors, width*0.95, height/2, 125, 100);
-    popMatrix();
+    //popMatrix();
   }
   if (westRoom != #848484) {
-    pushMatrix();
-    rotate(PI/2);
-    translate(width*0.05, height/2);
+   // pushMatrix();
+   // rotate(PI/2);
+    //translate(width*0.05, height/2);
     image(doors, width*0.05, height/2, 125, 100);
-    popMatrix();
+   // popMatrix();
   }
 
   //floor

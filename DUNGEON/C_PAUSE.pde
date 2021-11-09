@@ -1,5 +1,3 @@
 //pause screen
 void pause() {
-  
-  
 }

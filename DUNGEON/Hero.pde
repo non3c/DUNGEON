@@ -1,7 +1,7 @@
 class Hero extends GameObject {
 
   float speed;
-  
+
   Weapons myWeapon;
 
   Hero() {
@@ -11,7 +11,7 @@ class Hero extends GameObject {
     roomX = 1;
     roomY = 1;
     size = 40;
-    myWeapon = new Pistol();
+    myWeapon = new SniperRifle();
     //ArrayList<Weapons> weapons;
   }
 
@@ -30,10 +30,10 @@ class Hero extends GameObject {
     if (downkey) vel.y = speed;
     if (rightkey) vel.x = speed;
 
-    
+
     if (!upkey && !downkey) vel.y = vel.y*0.75;
     if (!leftkey && !rightkey) vel.x = vel.x*0.75;
-    
+
     if (spacekey) speed = 13;
     if (!spacekey) speed = 5;
     if (vel.mag() > speed)

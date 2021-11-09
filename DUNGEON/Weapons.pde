@@ -1,6 +1,7 @@
 
 class Weapons {
-
+  int bulletHP;
+  int wpnDamage;
   int shotTimer;
   int threshold;
   int bulletSpeed;
@@ -11,6 +12,7 @@ class Weapons {
   
   Weapons() {
     shotTimer = 0;
+    wpnDamage = 5;
     threshold = 30;
     bulletSpeed = 5;
     bulletNum = 1;
@@ -20,8 +22,10 @@ class Weapons {
     
   }
 
-  Weapons(int thr, int bs, int bn, float sp, float bsize, color bc) {
+  Weapons(int hp, int thr, int bs, int bn, float sp, float bsize, color bc, int dmg) {
+    bulletHP = hp;
     shotTimer = 0;
+    wpnDamage = dmg;
     threshold = thr;
     bulletSpeed = bs;
     bulletNum = bn;
@@ -44,7 +48,7 @@ class Weapons {
       PVector aimVector = new PVector(mouseX-myHero.pos.x, mouseY-myHero.pos.y);
       aimVector.setMag(bulletSpeed);
       PVector bulletSpread = new PVector(random(-spread, spread), random(-spread, spread));
-      myObjects.add(new Bullets(aimVector.add(bulletSpread), bulletColor, bulletSize));
+      myObjects.add(new Bullets(bulletHP, aimVector.add(bulletSpread), bulletColor, bulletSize, wpnDamage));
       shotTimer = 0;
      }
     
