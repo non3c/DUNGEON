@@ -33,9 +33,7 @@ class Enemy extends GameObject {
       GameObject obj = myObjects.get(i);
       // lose lives when getting shot
       if (obj instanceof Bullets) {
-        //float d = dist(obj.pos.x, obj.pos.y, pos.x, pos.y);
-        // if (d <=size/2 + obj.size/2) {
-        if ( dist(pos.x, pos.y, obj.pos.x, obj.pos.y) <= obj.size/2 + size/2) {
+        if (dist(pos.x, pos.y, obj.pos.x, obj.pos.y) <= obj.size/2 + size/2) {
           obj.hp --;
           hp = hp - obj.damage;
         }

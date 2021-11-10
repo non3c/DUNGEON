@@ -11,7 +11,7 @@ class Hero extends GameObject {
     roomX = 1;
     roomY = 1;
     size = 40;
-    myWeapon = new SniperRifle();
+    myWeapon = new ShotGun();
     //ArrayList<Weapons> weapons;
   }
 
@@ -34,8 +34,10 @@ class Hero extends GameObject {
     if (!upkey && !downkey) vel.y = vel.y*0.75;
     if (!leftkey && !rightkey) vel.x = vel.x*0.75;
 
-    if (spacekey) speed = 13;
-    if (!spacekey) speed = 5;
+    if (spacekey) {
+      speed++;
+    }
+
     if (vel.mag() > speed)
       vel.setMag(speed);
 
