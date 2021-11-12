@@ -34,13 +34,13 @@ void drawRoom() {
     pushMatrix();
     translate(width/2, height*0.95);
     rotate(PI);
-    image(doors, 0, 0, 125, 100);
+    image(doors,0, 0, 125, 100);
     popMatrix();
   }
   if (eastRoom != #848484) {
     pushMatrix();
     translate(width*0.95, height/2);
-    rotate(PI/2);
+    rotate(PI/2);  
     image(doors, 0, 0, 125, 100);
     popMatrix();
   }

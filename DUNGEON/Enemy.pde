@@ -21,6 +21,7 @@ class Enemy extends GameObject {
   void show() {
 
     stroke(BLACK);
+    strokeWeight(1);
     fill(WHITE);
     ellipse(pos.x, pos.y, size, size);
     fill(BLACK);

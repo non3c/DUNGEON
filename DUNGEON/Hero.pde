@@ -1,5 +1,7 @@
-class Hero extends GameObject {
+int immuneTimer, immuneThreshold;
 
+class Hero extends GameObject {
+  boolean immune = false;
   float speed;
 
   Weapons myWeapon;
@@ -11,7 +13,9 @@ class Hero extends GameObject {
     roomX = 1;
     roomY = 1;
     size = 40;
-    myWeapon = new ShotGun();
+    immuneTimer = 180;
+    immuneThreshold = 180;
+    myWeapon = new SniperRifle();
     //ArrayList<Weapons> weapons;
   }
 
@@ -20,10 +24,12 @@ class Hero extends GameObject {
     stroke(DARKBROWN);
     strokeWeight(2);
     ellipse(pos.x, pos.y, size, size);
+    text(hp, pos.x, pos.y);
   }
 
   void act() {
     super.act();
+    immuneTimer ++;
 
     if (upkey) vel.y = -speed;
     if (leftkey) vel.x = -speed;
@@ -65,6 +71,40 @@ class Hero extends GameObject {
     myWeapon.update();
     if (mousePressed) {
       myWeapon.shoot();
+    }
+
+    if (immuneTimer < immuneThreshold) {
+      noFill();
+      stroke(#40BEFF, 200-immuneTimer);
+      strokeWeight(5);
+      ellipse(pos.x, pos.y, size+30, size+30);
+      immune = true;
+    } else immune = false;
+  }
+
+  void checkCollision() {
+
+    for (int i = 0; i < myObjects.size(); i ++) {
+      GameObject obj = myObjects.get(i);
+/*
+      if (obj instanceof EnemyProj) {
+        if (dist(pos.x, pos.y, obj.pos.x, obj.pos.y) <= obj.size/2 + size/2) {
+          if (!immune) {
+            obj.lives = 0;
+            lives--;
+            immuneTimer = 0;
+          }
+        }
+      }
+*/
+      if (obj instanceof Enemy) {
+        if (dist(pos.x, pos.y, obj.pos.x, obj.pos.y) <= obj.size/2 + size/2) {
+          if (!immune) {
+            hp--;
+            immuneTimer = 0;
+          }
+        }
+      }
     }
   }
 }
