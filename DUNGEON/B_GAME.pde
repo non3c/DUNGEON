@@ -64,7 +64,6 @@ void drawGameObjects() {
     if (obj.roomX == myHero.roomX && obj.roomY == myHero.roomY) {
       obj.show();
       obj.act();
-      myHero.checkCollision();
       if (obj.hp <= 0 ) {
         myObjects.remove(i);
         i--;

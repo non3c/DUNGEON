@@ -1,9 +1,9 @@
 int immuneTimer, immuneThreshold;
-
+boolean immune = false;
 class Hero extends GameObject {
-  boolean immune = false;
   float speed;
-
+  int rollTimer, rollThreshold;
+  boolean roll = false;
   Weapons myWeapon;
 
   Hero() {
@@ -15,7 +15,9 @@ class Hero extends GameObject {
     size = 40;
     immuneTimer = 180;
     immuneThreshold = 180;
-    myWeapon = new SniperRifle();
+    rollTimer = 60;
+    rollThreshold = 60;
+    myWeapon = new ShotGun();
     //ArrayList<Weapons> weapons;
   }
 
@@ -24,12 +26,14 @@ class Hero extends GameObject {
     stroke(DARKBROWN);
     strokeWeight(2);
     ellipse(pos.x, pos.y, size, size);
+    fill(WHITE);
     text(hp, pos.x, pos.y);
   }
 
   void act() {
     super.act();
     immuneTimer ++;
+    rollTimer ++;
 
     if (upkey) vel.y = -speed;
     if (leftkey) vel.x = -speed;
@@ -40,12 +44,20 @@ class Hero extends GameObject {
     if (!upkey && !downkey) vel.y = vel.y*0.75;
     if (!leftkey && !rightkey) vel.x = vel.x*0.75;
 
-    if (spacekey) {
-      speed++;
-    }
-
-    if (vel.mag() > speed)
-      vel.setMag(speed);
+    if (spacekey && rollTimer >= rollThreshold) {
+      roll = true;
+      if (roll) {
+        vel.setMag(15);
+        for (int i = 0; i <= 200; i++) {
+          if (i >= 200) {
+          roll = false;
+          rollTimer = 0;
+          break;
+          }
+        }
+      }
+    } else if (!roll && vel.mag() >= speed) vel.setMag(speed);
+      
 
     //check exits
     if (northRoom !=#848484 && pos.y == height*0.1 && pos.x >= width/2-50 && pos.x <= width/2+50) {
@@ -75,36 +87,10 @@ class Hero extends GameObject {
 
     if (immuneTimer < immuneThreshold) {
       noFill();
-      stroke(#40BEFF, 200-immuneTimer);
+      stroke(#40BEFF, 180-immuneTimer);
       strokeWeight(5);
       ellipse(pos.x, pos.y, size+30, size+30);
       immune = true;
     } else immune = false;
-  }
-
-  void checkCollision() {
-
-    for (int i = 0; i < myObjects.size(); i ++) {
-      GameObject obj = myObjects.get(i);
-/*
-      if (obj instanceof EnemyProj) {
-        if (dist(pos.x, pos.y, obj.pos.x, obj.pos.y) <= obj.size/2 + size/2) {
-          if (!immune) {
-            obj.lives = 0;
-            lives--;
-            immuneTimer = 0;
-          }
-        }
-      }
-*/
-      if (obj instanceof Enemy) {
-        if (dist(pos.x, pos.y, obj.pos.x, obj.pos.y) <= obj.size/2 + size/2) {
-          if (!immune) {
-            hp--;
-            immuneTimer = 0;
-          }
-        }
-      }
-    }
   }
 }

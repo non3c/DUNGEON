@@ -10,7 +10,7 @@ class Enemy extends GameObject {
   }
 
   Enemy(int _hp, int _s, int x, int y) {
-    pos = new PVector(random(width*0.1, width*0.9), random(height*0.1, height*0.9));
+    pos = new PVector(random(width*0.15, width*0.85), random(height*0.15, height*0.85));
     vel = new PVector(0, 0);
     hp = _hp;
     roomX = x;
