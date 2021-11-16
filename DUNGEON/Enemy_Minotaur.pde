@@ -1,6 +1,6 @@
 class Minotaur extends Enemy {
   Minotaur(int x, int y) {
-    super(100, 50, x, y);
+    super(MINOTAUR_HP, 50, x, y);
   }
   void act() {
     super.act();

@@ -1,4 +1,5 @@
 import processing.javafx.*; 
+//import processing.sprite;
 AnimatedGIF introBackground;
 Buttons startButton;
 Hero myHero;
@@ -47,10 +48,10 @@ void setup() {
   introBackground = new AnimatedGIF(20, 4, "GIF/frame_", "_delay-0.1s.png", width/2, height/2, width+200, height);
   startButton = new Buttons(width/2, height/1.3, 300, 150, VIOLET, WHITE, "START", PixelBoy);
 
-  walls = loadImage("walls.png");
-  floor = loadImage("floor.png");
-  doors = loadImage("dooropen.png");
-  map = loadImage("map.png");
+  walls = loadImage("Props/Room/walls.png");
+  floor = loadImage("Props/Room/floor.png");
+  doors = loadImage("Props/Room/dooropen.png");
+  map = loadImage("Props/map.png");
 
   //Create Objects
   myObjects = new ArrayList<GameObject>();
@@ -58,6 +59,7 @@ void setup() {
   myObjects.add(myHero);
   myObjects.add(new Minotaur(2, 1));
   myObjects.add(new Medusa(3, 1));
+  myObjects.add(new  Phaeton(1, 2));
 
   //Create Darkness
   darkness = new ArrayList<DarknessCell>();
@@ -75,6 +77,9 @@ void setup() {
     if (y -size >= height) break;
   }
 }
+  //Enemy Settings
+  final int MINOTAUR_HP = 100;
+  final int MINOTAUR_SIZE = 50;
 
 void draw() {
 

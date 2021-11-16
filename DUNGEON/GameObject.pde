@@ -26,4 +26,10 @@ class GameObject {
     if (pos.y < height*0.1) pos.y = height*0.1;
     if (pos.y > height*0.9) pos.y = height*0.9;
   }
+  boolean inRoomWith(GameObject myObj) {
+    if (roomX == myObj.roomX && roomY == myObj.roomY) {
+      return true;
+    } else return false;
+  }
 }
+  
