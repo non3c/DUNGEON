@@ -38,8 +38,8 @@ int enemydamage;
         obj.hp --;
         hp = hp - obj.damage;
         if (hp == 0) {
-          int rdm = int(random(0, 100));
-          if (rdm >= 70) {
+          float rdm = (random(0, 1));
+          if (rdm >= 0.6) {
             myObjects.add(new DroppedItem(pos.x, pos.y, roomX, roomY));
           }
         }

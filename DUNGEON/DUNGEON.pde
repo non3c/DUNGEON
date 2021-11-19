@@ -7,6 +7,9 @@ ArrayList<GameObject> myObjects;
 ArrayList<DarknessCell> darkness; 
 ArrayList minimap;
 PFont PixelBoy, NineteenNinetySeven;
+//GameObjects appearence
+PImage[] Bullets;
+
 //room PImages
 PImage walls;
 PImage floor;
@@ -42,16 +45,24 @@ void setup() {
   frameRate(60);
   size(1200, 800, FX2D);
   smooth();
-
+  
+  //
+  Bullets = new PImage[3];
   PixelBoy = createFont("Fonts/Pixeboy.ttf", 64);
   NineteenNinetySeven = createFont("Fonts/NineteenNinetySeven.ttf", 64);
   introBackground = new AnimatedGIF(20, 4, "GIF/frame_", "_delay-0.1s.png", width/2, height/2, width+200, height);
   startButton = new Buttons(width/2, height/1.3, 300, 150, VIOLET, WHITE, "START", PixelBoy);
 
+
+  //Loading
   walls = loadImage("Props/Room/walls.png");
   floor = loadImage("Props/Room/floor.png");
   doors = loadImage("Props/Room/dooropen.png");
   map = loadImage("Props/map.png");
+  
+  for (int i = 0; i<2; i++) {
+    Bullets[i] = loadImage("Props/Bullet_"+i+".png");
+  }
 
   //Create Objects
   myObjects = new ArrayList<GameObject>();
