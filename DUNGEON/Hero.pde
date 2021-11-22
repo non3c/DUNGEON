@@ -17,7 +17,7 @@ class Hero extends GameObject {
     immuneThreshold = 180;
     rollTimer = 60;
     rollThreshold = 60;
-    myWeapon = new ShotGun();
+    myWeapon = new Pistol();
     
   }
 

@@ -11,6 +11,16 @@ class DarknessCell {
 
   void show() {
     rectMode(CORNER);
+    /*
+    float lowestOpacity = 255;
+    for(int i = 0; i < myObjects.size(); i++) {
+     GameObjects obj = glowObjects.get(i);
+     opacity = map(dist(x, y, obj.pos.x, obj.pos.y), 0, );
+     opacity = min(255, opacity);
+     if (opactiy <lowest Opacity) lowest Opacity = opacity 
+    }
+    */
+    
     noStroke();
     fill(#000000, opacity);
     square(x, y, size); 

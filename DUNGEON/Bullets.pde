@@ -1,10 +1,10 @@
 class Bullets extends GameObject {
   // instance variables
   int bulletCostume;
-  float size;
+  PVector size;
   PVector nudge;
   PVector dir;
-  Bullets(int h, PVector aim, float s, int d, int cos) {
+  Bullets(int h, PVector aim, float sx, float sy, int d, int cos) {
     //constructor
     bulletCostume = cos;
     hp = h; 
@@ -19,7 +19,7 @@ class Bullets extends GameObject {
     pos.add(nudge);
     vel.setMag(16.5);
     vel.add(aim);
-    size = s;
+    size = new PVector(sx, sy);
     roomX = myHero.roomX;
     roomY = myHero.roomY;
   }
@@ -27,12 +27,12 @@ class Bullets extends GameObject {
   void show() {
     //appearence
     
-    //pushMatrix();
-    //translate(pos.x, pos.y);
-    //rotate(dir.heading());
+    pushMatrix();
+    translate(pos.x, pos.y); 
+    rotate(dir.heading());
     stroke(#818181, 20);
-    image(Bullets[bulletCostume], pos.x, pos.y, size, size);
-    //popMatrix();
+    image(Bullets[bulletCostume], 0, 0, size.x, size.y);
+    popMatrix();
   }
 
   void act() {

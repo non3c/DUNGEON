@@ -60,7 +60,7 @@ void setup() {
   doors = loadImage("Props/Room/dooropen.png");
   map = loadImage("Props/map.png");
   
-  for (int i = 0; i<2; i++) {
+  for (int i = 0; i<3; i++) {
     Bullets[i] = loadImage("Props/Bullet_"+i+".png");
   }
 
@@ -85,7 +85,7 @@ void setup() {
       x = 0;
     } 
 
-    if (y -size >= height) break;
+    if (y-size >= height) break;
   }
 }
 
