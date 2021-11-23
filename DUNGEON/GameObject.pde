@@ -13,7 +13,7 @@ class GameObject {
     hp = 1;
     pos = new PVector(width/2, height/2);
     vel = new PVector(0, 0);
-  lightRadios = 0;  
+  lightRadius = 0;  
 }
 
   void show() {
