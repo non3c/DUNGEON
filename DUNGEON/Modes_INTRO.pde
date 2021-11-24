@@ -2,7 +2,7 @@
 //intro screen
 void intro() {
   textAlign(CENTER);
-  introBackground.show();
+  introBackground.show(width/2, height/2, width+200, height);
   textFont(PixelBoy);
   textSize(200);
   fill(#4BB45B);

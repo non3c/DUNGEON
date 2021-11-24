@@ -4,6 +4,7 @@ class Hero extends GameObject {
   float speed;
   int rollTimer, rollThreshold;
   ArrayList<Weapons> weapons;
+  AnimatedGIF currentAction;
   Weapons myWeapon;
 
   Hero() {
@@ -12,21 +13,25 @@ class Hero extends GameObject {
     speed = 5;
     roomX = 1;
     roomY = 1;
-    size = 40;
+    size = 80;
     immuneTimer = 180;
     immuneThreshold = 180;
     rollTimer = 60;
     rollThreshold = 60;
     myWeapon = new Pistol();
+    currentAction = heroFaceRight;
     
   }
 
   void show() {
+    currentAction.show(pos.x, pos.y, size, size);
+    /*/
     fill(VIOLET);
     stroke(DARKBROWN);
     strokeWeight(2);
     ellipse(pos.x, pos.y, size, size);
     fill(WHITE);
+    */
     text(hp, pos.x, pos.y);
   }
 
@@ -39,7 +44,13 @@ class Hero extends GameObject {
     if (leftkey) vel.x = -speed;
     if (downkey) vel.y = speed;
     if (rightkey) vel.x = speed;
-
+  
+      if (vel.x > 0) currentAction = heroMoveRight;
+      else currentAction = heroMoveLeft;
+     else if {
+     if (vel.x = 0) currentAction = heroFaceLeft;
+     else currentAction = heroFaceRight;
+    }
 
     if (!upkey && !downkey) vel.y = vel.y*0.75;
     if (!leftkey && !rightkey) vel.x = vel.x*0.75;

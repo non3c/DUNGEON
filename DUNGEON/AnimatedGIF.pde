@@ -4,20 +4,14 @@ class AnimatedGIF {
   int rate;
   int currFrame;
   PImage[] gif;
-  float posx, posy;
-  float w, h;
   String prefix, suffix;
   int f;
   int frameNumber;
 
 
-  AnimatedGIF(int arraySize, int r, String p, String s, float _x, float _y, float _w, float _h) {
+  AnimatedGIF(int arraySize, int r, String p, String s) {
     //constructor 
     size = arraySize;
-    posx = _x;
-    posy = _y;
-    w = _w;
-    h = _h;
     rate = r;
     prefix = p;
     suffix = s;
@@ -27,12 +21,13 @@ class AnimatedGIF {
     }
     currFrame = 0 ;
   }
-  void show() {
+  void show(float px, float py, float w, float h) {
     //behaviour function
     if (currFrame >= gif.length) currFrame = 0;
-    image(gif[currFrame], posx, posy, w, h);
+    image(gif[currFrame], px, py, w, h);
     if (frameCount % rate == 0) currFrame++;
   }
+
   void loadgif(String prefix, String suffix) {
     int i = 0;
     while (i < gif.length) {

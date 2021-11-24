@@ -9,6 +9,10 @@ ArrayList minimap;
 PFont PixelBoy, NineteenNinetySeven;
 //GameObjects appearence
 PImage[] Bullets;
+AnimatedGIF heroFaceLeft;
+AnimatedGIF heroFaceRight;
+AnimatedGIF heroMoveLeft;
+AnimatedGIF heroMoveRight;
 
 //room PImages
 PImage walls;
@@ -50,7 +54,11 @@ void setup() {
   Bullets = new PImage[3];
   PixelBoy = createFont("Fonts/Pixeboy.ttf", 64);
   NineteenNinetySeven = createFont("Fonts/NineteenNinetySeven.ttf", 64);
-  introBackground = new AnimatedGIF(20, 4, "GIF/frame_", "_delay-0.1s.png", width/2, height/2, width+200, height);
+  introBackground = new AnimatedGIF(20, 4, "GIF/frame_", "_delay-0.1s.png");
+  heroFaceLeft = new AnimatedGIF(2, 10, "Props/HeroAnimation/FaceLeft/FaceLeft_", ".png");
+  heroFaceRight = new AnimatedGIF(2, 10, "Props/HeroAnimation/FaceRight/FaceRight_", ".png");
+  heroMoveLeft = new AnimatedGIF(4, 10, "Props/HeroAnimation/MoveLeft/MoveLeft_", ".png");
+  heroMoveRight = new AnimatedGIF(4, 10, "Props/HeroAnimation/MoveRight/MoveRight_", ".png");
   startButton = new Buttons(width/2, height/1.3, 300, 150, VIOLET, WHITE, "START", PixelBoy);
 
 
@@ -59,6 +67,7 @@ void setup() {
   floor = loadImage("Props/Room/floor.png");
   doors = loadImage("Props/Room/dooropen.png");
   map = loadImage("Props/map.png");
+  
   
   for (int i = 0; i<3; i++) {
     Bullets[i] = loadImage("Props/Bullet_"+i+".png");
