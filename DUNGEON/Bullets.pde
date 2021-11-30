@@ -26,7 +26,6 @@ class Bullets extends GameObject {
 
   void show() {
     //appearence
-    
     pushMatrix();
     translate(pos.x, pos.y); 
     rotate(dir.heading());

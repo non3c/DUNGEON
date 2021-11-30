@@ -5,7 +5,7 @@ class Hero extends GameObject {
   int rollTimer, rollThreshold;
   ArrayList<Weapons> weapons;
   AnimatedGIF currentAction;
-  Weapons myWeapon;
+
 
   Hero() {
     super(); 
@@ -18,7 +18,7 @@ class Hero extends GameObject {
     immuneThreshold = 180;
     rollTimer = 60;
     rollThreshold = 60;
-    myWeapon = new ShotGun();
+    Weapons.add(new ShotGun());
     currentAction = heroFaceRight;
   }
 

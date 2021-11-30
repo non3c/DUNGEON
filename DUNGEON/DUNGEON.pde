@@ -8,7 +8,7 @@ ArrayList<DarknessCell> darkness;
 ArrayList minimap;
 PFont PixelBoy, NineteenNinetySeven;
 //GameObjects appearence
-PImage[] Weapons;
+PImage[] WeaponsHold;
 PImage[] Bullets;
 AnimatedGIF heroFaceLeft;
 AnimatedGIF heroFaceRight;
@@ -53,6 +53,7 @@ void setup() {
 
   //
   Bullets = new PImage[3];
+  WeaponsHold = new PImage[10];
   PixelBoy = createFont("Fonts/Pixeboy.ttf", 64);
   NineteenNinetySeven = createFont("Fonts/NineteenNinetySeven.ttf", 64);
   introBackground = new AnimatedGIF(20, 4, "GIF/frame_", "_delay-0.1s.png");
@@ -74,8 +75,8 @@ void setup() {
     Bullets[i] = loadImage("Props/Bullets/Bullet_"+i+".png");
   }
   
-  for (int i = 0; i<3; i++) {
-    Weapons[i] = loadImage("Props/Weapons/Weapns_"+i+".png");
+  for (int i = 0; i<2; i++) {
+    WeaponsHold[i] = loadImage("Props/Weapons/Weapon_"+i+".png");
   }
 
   //Create Objects
@@ -127,14 +128,13 @@ final int HEALTH = 2;
 final int MONEY = 3;
 
 //Weapons
-final int Pistol = 0;
-final int ShotGun = 1;
-final int AssultRifle = 2;
-final int SniperRifle = 3;
+final int wp_Pistol = 0;
+final int wp_ShotGun = 1;
+final int wp_AssultRifle = 2;
+final int wp_SniperRifle = 3;
 //final int
 //final int 
 //final int 
-
 
 //Enemy Settings
 final int MINOTAUR_HP = 300;
