@@ -49,7 +49,7 @@ class Weapons {
     translate(myHero.pos.x, myHero.pos.y); 
     rotate(aimVector.heading());
     stroke(#818181, 20);
-    image(Weapons[type], 0, 0, size, size);
+    image(WeaponsHold[type], 0, 0, size, size);
     popMatrix();
   }
 

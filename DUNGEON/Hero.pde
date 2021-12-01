@@ -3,7 +3,8 @@ boolean immune = false;
 class Hero extends GameObject {
   float speed;
   int rollTimer, rollThreshold;
-  ArrayList<Weapons> weapons;
+  //ArrayList<Weapons> weapons;
+  Weapons myWeapon;
   AnimatedGIF currentAction;
 
 
@@ -18,7 +19,7 @@ class Hero extends GameObject {
     immuneThreshold = 180;
     rollTimer = 60;
     rollThreshold = 60;
-    Weapons.add(new ShotGun());
+    myWeapon = new ShotGun();
     currentAction = heroFaceRight;
   }
 
@@ -102,14 +103,15 @@ class Hero extends GameObject {
     myWeapon.update();
     if (mousePressed) {
       myWeapon.shoot();
-    }
+      //}
 
-    if (immuneTimer < immuneThreshold) {
-      noFill();
-      stroke(#40BEFF, 180-immuneTimer);
-      strokeWeight(5);
-      ellipse(pos.x, pos.y, size+30, size+30);
-      immune = true;
-    } else immune = false;
+      if (immuneTimer < immuneThreshold) {
+        noFill();
+        stroke(#40BEFF, 180-immuneTimer);
+        strokeWeight(5);
+        ellipse(pos.x, pos.y, size+30, size+30);
+        immune = true;
+      } else immune = false;
+    }
   }
 }

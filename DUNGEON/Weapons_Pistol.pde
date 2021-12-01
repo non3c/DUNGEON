@@ -3,6 +3,6 @@ class Pistol extends Weapons {
     super();
   }
   void show() {
-   super.show(); 
+   super.show(0); 
   }
 }
