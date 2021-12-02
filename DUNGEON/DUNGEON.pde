@@ -5,6 +5,7 @@ Buttons startButton;
 Hero myHero;
 ArrayList<GameObject> myObjects;
 ArrayList<DarknessCell> darkness;
+ArrayList<Weapons> Weapons;
 ArrayList minimap;
 PFont PixelBoy, NineteenNinetySeven;
 //GameObjects appearence
@@ -52,7 +53,7 @@ void setup() {
   smooth();
 
   //
-  Bullets = new PImage[3];
+  Bullets = new PImage[10];
   WeaponsHold = new PImage[10];
   PixelBoy = createFont("Fonts/Pixeboy.ttf", 64);
   NineteenNinetySeven = createFont("Fonts/NineteenNinetySeven.ttf", 64);
@@ -74,18 +75,24 @@ void setup() {
   for (int i = 0; i<3; i++) {
     Bullets[i] = loadImage("Props/Bullets/Bullet_"+i+".png");
   }
-  
-  for (int i = 0; i<2; i++) {
+
+  for (int i = 0; i<4; i++) {
     WeaponsHold[i] = loadImage("Props/Weapons/Weapon_"+i+".png");
   }
 
   //Create Objects
   myObjects = new ArrayList<GameObject>();
+  Weapons = new ArrayList<Weapons>();
   myHero = new Hero();
   myObjects.add(myHero);
-
-
-  myObjects.add(new  Phaeton(1, 2));
+  myObjects.add(new Phaeton(1, 2));
+  myObjects.add(new Phaeton(1, 2));
+  myObjects.add(new Phaeton(1, 2));
+  
+  Weapons.add(new Pistol());
+  Weapons.add(new ShotGun());
+  Weapons.add(new AssultRifle());
+  Weapons.add(new SniperRifle());
 
   //Create Darkness
   darkness = new ArrayList<DarknessCell>();
@@ -101,7 +108,7 @@ void setup() {
     }
     if (y-size >= height) break;
   }
-  
+
   //Spawn enemies
   x = 0;
   y = 0;

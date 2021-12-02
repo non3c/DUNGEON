@@ -13,6 +13,13 @@ class DroppedItem extends GameObject {
     roomY = ry;
   }
   void show() {
+    if (type == 1) {
+       
+    } else if (type == 2) {
+      
+    } else if (type == 3) {
+      
+    }
    stroke(BLACK);
    strokeWeight(2);
    fill(PURPLE);

@@ -15,7 +15,7 @@ class Bullets extends GameObject {
     // adjust the location
     nudge = aim.copy();
     nudge.rotate(PI);
-    nudge.setMag(-30);
+    nudge.setMag(-50);
     pos.add(nudge);
     vel.setMag(16.5);
     vel.add(aim);
