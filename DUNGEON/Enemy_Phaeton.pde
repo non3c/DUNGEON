@@ -1,6 +1,6 @@
 class Phaeton extends Enemy {
   Phaeton(int x, int y) {
-    super(PHAETON_HP, PHAETON_SIZE, x, y, PHAETON_DAMAGE);
+    super(PHAETON_HP, PHAETON_SIZE, x, y, PHAETON_DAMAGE, 2);
   }
   void act() {
   super.act();

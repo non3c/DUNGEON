@@ -5,15 +5,17 @@ class Buttons {
   color unhoverColor, hoverColor;
   String text;
   PFont font;
+  float fontSize;
   String prefix, suffix;
   boolean clicked;
   PImage[] buttons;
 
-  Buttons(float x, float y, float w, float h, color hc, color uc, String t, PFont f) {
+  Buttons(float x, float y, float w, float h, color hc, color uc, String t, PFont f, float fs) {
     //constructor 
 
     pos = new PVector(x, y);
     size = new PVector(w, h);
+    fontSize = fs;
     unhoverColor = uc;
     hoverColor = hc;
     font = f;
@@ -21,10 +23,11 @@ class Buttons {
     clicked = false;
   }
 
-  Buttons(String pre, String suf, float x, float y, float w, float h) {
+  Buttons(String pre, String suf, float x, float y, float w, float h, float fs) {
     //constructor 
     pos = new PVector(x, y);
     size = new PVector(w, h);
+    fontSize = fs;
     prefix = pre;
     suffix = suf;
     buttons = new PImage[2];
@@ -37,20 +40,22 @@ class Buttons {
     //behaviour function
     rectMode(CENTER);
     textAlign(CENTER);
+    stroke(hoverColor);
+    strokeWeight(5);
     if ( mouseX > pos.x-size.x/2 && mouseX < pos.x+size.x/2 && mouseY > pos.y-size.y/2 && mouseY < pos.y+size.y/2) {
       textFont(font);
       fill(hoverColor);
-      rect(pos.x, pos.y, size.x-5, size.y-5, 20);
+      rect(pos.x, pos.y, size.x-5, size.y-5, 10);
       fill(unhoverColor);
-      textSize(size.x/4);
-      text(text, pos.x, pos.y+20);
+      textSize(fontSize);
+      text(text, pos.x, pos.y+10);
     } else {
       textFont(font);
       fill(unhoverColor);
-      rect(pos.x, pos.y, size.x, size.y, 20);
+      rect(pos.x, pos.y, size.x, size.y, 10);
       fill(hoverColor);
-      textSize(size.x/4);
-      text(text, pos.x, pos.y+20);
+      textSize(fontSize+5);
+      text(text, pos.x, pos.y+10);
     }
     if (mouseReleased && mouseX > pos.x-size.x/2 && mouseX < pos.x+size.x/2 && mouseY > pos.y-size.y/2 && mouseY < pos.y+size.y/2) {
       clicked = true;

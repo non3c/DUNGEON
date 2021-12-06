@@ -1,6 +1,6 @@
 class Medusa extends Enemy {
   Medusa(int x, int y) {
-    super(MEDUSA_HP, MEDUSA_SIZE, x, y, MEDUSA_DAMAGE);
+    super(MEDUSA_HP, MEDUSA_SIZE, x, y, MEDUSA_DAMAGE, 15);
   }
   void act() {
     super.act();

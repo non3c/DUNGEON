@@ -35,7 +35,7 @@ class Hero extends GameObject {
     immuneTimer ++;
     rollTimer ++;
 
-    if (hp >= 30) {
+    if (hp >= hpMax) {
       hp = 30;
     }
     if (upkey) vel.y = -speed;
@@ -53,12 +53,8 @@ class Hero extends GameObject {
       else if (aimVector.x < 0) currentAction = heroFaceLeft;
     }
 
-
-
     if (!upkey && !downkey) vel.y = vel.y*0.75;
     if (!leftkey && !rightkey) vel.x = vel.x*0.75;
-
-
 
     if (vel.mag() >= speed) vel.setMag(speed);
 

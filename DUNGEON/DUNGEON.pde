@@ -2,6 +2,8 @@ import processing.javafx.*;
 //import processing.sprite;
 AnimatedGIF introBackground;
 Buttons startButton;
+Buttons addHPButton;
+Buttons addRollButton;
 Hero myHero;
 ArrayList<GameObject> myObjects;
 ArrayList<DarknessCell> darkness;
@@ -62,8 +64,10 @@ void setup() {
   heroFaceRight = new AnimatedGIF(2, 10, "Props/HeroAnimation/FaceRight/FaceRight_", ".png");
   heroMoveLeft = new AnimatedGIF(4, 10, "Props/HeroAnimation/MoveLeft/MoveLeft_", ".png");
   heroMoveRight = new AnimatedGIF(4, 10, "Props/HeroAnimation/MoveRight/MoveRight_", ".png");
-  startButton = new Buttons(width/2, height/1.3, 300, 150, VIOLET, WHITE, "START", PixelBoy);
-
+  
+  startButton = new Buttons(width/2, height/1.3, 300, 150, VIOLET, WHITE, "START", PixelBoy, 80);
+  addHPButton = new Buttons(250, 300, 60, 60, GREY, WHITE, "+", PixelBoy, 40);
+  addRollButton = new Buttons(250, 380, 60, 60, GREY, WHITE, "+", PixelBoy, 40);
 
   //Loading
   walls = loadImage("Props/Room/walls.png");
