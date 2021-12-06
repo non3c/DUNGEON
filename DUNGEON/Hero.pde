@@ -1,7 +1,7 @@
 int immuneTimer, immuneThreshold;
 boolean immune = false;
+
 class Hero extends GameObject {
-  float speed;
   int rollTimer, rollThreshold;
   ArrayList<Weapons> weapons;
   Weapons myWeapon;
@@ -11,6 +11,7 @@ class Hero extends GameObject {
   Hero() {
     super(); 
     hp = 30;
+    hpMax = 30;
     speed = 5;
     roomX = 1;
     roomY = 1;
@@ -76,6 +77,7 @@ class Hero extends GameObject {
         }
         if (item.type == HEALTH) {
           hp = hp + 5;
+          if (hp > hpMax) hp = hpMax;
           item.hp = 0;
         }
       }

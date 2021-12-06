@@ -4,8 +4,11 @@ class GameObject {
   int roomX, roomY;
   PVector pos;
   PVector vel; 
+  int hpMax;
   int hp;
+  int xp;
   int size;
+  float speed;
   int lightRadius;
 
 

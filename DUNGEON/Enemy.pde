@@ -1,5 +1,5 @@
 class Enemy extends GameObject {
-int enemydamage;
+  int enemydamage;
   Enemy() {
     pos = new PVector(width/2, height/2);
     vel = new PVector(0, 0);
@@ -10,7 +10,7 @@ int enemydamage;
   }
 
   Enemy(int _hp, int _s, int x, int y, int dmg) {
-    pos = new PVector(random(width*0.15, width*0.85), random(height*0.15, height*0.85));
+    pos = new PVector(random(width*0.3, width*0.7), random(height*0.3, height*0.7));
     vel = new PVector(0, 0);
     hp = _hp;
     enemydamage = dmg;
@@ -37,20 +37,24 @@ int enemydamage;
       if (obj instanceof Bullets && isCollidingWith(obj)) {
         obj.hp --;
         hp = hp - obj.damage;
-        if (hp == 0) {
-          float rdm = (random(0, 1));
-          //if (rdm >= 0.6) {
-            myObjects.add(new DroppedItem(pos.x, pos.y, roomX, roomY));
-          //}
+        if (hp <= 0) {
+          dropItems();
+          myHero.xp += xp;
         }
       }
 
       if (obj instanceof Hero && isCollidingWith(obj)) {
         if (!immune) {
-          obj.hp = obj.hp - enemydamage; 
+          obj.hp = obj.hp - enemydamage;
           immuneTimer = 0;
         }
       }
+    }
+  }
+  void dropItems() {
+    float rdm = (random(0, 1));
+    if (rdm >= 0.6) {
+      myObjects.add(new DroppedItem(pos.x, pos.y, roomX, roomY));
     }
   }
 }
