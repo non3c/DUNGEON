@@ -12,6 +12,6 @@ void intro() {
 
   startButton.show();
   if (startButton.clicked) {
-    mode = 1;
+    mode = GAME;
   }
 }

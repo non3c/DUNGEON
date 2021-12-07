@@ -2,6 +2,7 @@ import processing.javafx.*;
 //import processing.sprite;
 AnimatedGIF introBackground;
 Buttons startButton;
+Buttons exitButton;
 Buttons addHPButton;
 Buttons addRollButton;
 Hero myHero;
@@ -35,7 +36,7 @@ color PURPLE       = #412E4C;
 color VELVET       = #7C425B;
 color WHITE        = #EEE4D8;
 color DARKWHITE    = #D9D0C3;
-color DARKGREEN    = #070A04;
+color YELLOW       = #FFC915;
 color DARKBROWN    = #261A09;
 color BLACK        = #000000;
 color ORANGE       = #EA9650;
@@ -66,6 +67,7 @@ void setup() {
   heroMoveRight = new AnimatedGIF(4, 10, "Props/HeroAnimation/MoveRight/MoveRight_", ".png");
   
   startButton = new Buttons(width/2, height/1.3, 300, 150, VIOLET, WHITE, "START", PixelBoy, 80);
+  exitButton = new Buttons(160, 120, 90, 90, DARKWHITE, WHITE, "X", PixelBoy, 60);
   addHPButton = new Buttons(250, 300, 60, 60, GREY, WHITE, "+", PixelBoy, 40);
   addRollButton = new Buttons(250, 380, 60, 60, GREY, WHITE, "+", PixelBoy, 40);
 

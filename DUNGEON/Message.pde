@@ -1,0 +1,5 @@
+class Messages extends GameObject {
+  
+  
+  
+}

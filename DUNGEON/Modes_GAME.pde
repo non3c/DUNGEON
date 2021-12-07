@@ -1,4 +1,7 @@
 void game() {
+  if (pause) {
+   mode = PAUSE; 
+  }
   drawRoom();
   drawGameObjects();
   drawLightLayer();
