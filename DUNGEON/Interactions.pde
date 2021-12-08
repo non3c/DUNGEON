@@ -1,4 +1,4 @@
-boolean upkey, downkey, leftkey, rightkey, spacekey, pause;
+boolean upkey, downkey, leftkey, rightkey, spacekey, pause, use;
 
 void keyPressed() {
   if (keyCode == 'W')       upkey = true;
@@ -7,6 +7,7 @@ void keyPressed() {
   if (keyCode == 'D')    rightkey = true;
   if (keyCode == ' ')    spacekey = true;  
   if (keyCode == 'P')       pause = true;
+  if (keyCode == 'E')         use = true;
 }
 
 void keyReleased() {
@@ -16,4 +17,5 @@ void keyReleased() {
   if (keyCode == 'D')    rightkey = false;
   if (keyCode == ' ')    spacekey = false;    
   if (keyCode == 'P')       pause = false;
+  if (keyCode == 'E')         use = false;
 }

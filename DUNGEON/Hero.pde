@@ -36,7 +36,7 @@ class Hero extends GameObject {
     rollTimer ++;
 
     if (hp >= hpMax) {
-      hp = 30;
+      hp = hpMax;
     }
     if (upkey) vel.y = -speed;
     if (leftkey) vel.x = -speed;
@@ -65,13 +65,13 @@ class Hero extends GameObject {
        obj.hp --;
        }
        */
-      if (obj instanceof DroppedItem && isCollidingWith(obj)) {
+      if (obj instanceof DroppedItem && isCollidingWith(obj) && use) {
         DroppedItem item = (DroppedItem) obj;
-        if (item.type == GUN) {
-          myWeapon = item.w;
+        if (item.type == id_GUN) {
+          myWeapon = item.wpn;
           item.hp = 0;
         }
-        if (item.type == HEALTH) {
+        if (item.type == id_HEALTH_POTION) {
           hp = hp + 5;
           if (hp > hpMax) hp = hpMax;
           item.hp = 0;

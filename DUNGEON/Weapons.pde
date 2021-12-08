@@ -58,7 +58,6 @@ class Weapons {
     scale(1, -1);
     rotate(-aimVector.heading());
     }
-    stroke(#818181, 20);
     image(WeaponsHold[type], 0, 0, size, size/2-3);
     popMatrix();
   }

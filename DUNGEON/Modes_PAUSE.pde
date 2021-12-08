@@ -24,6 +24,9 @@ void pauseScreen() {
   fill(YELLOW);
   text("Eat Carrots, Get Healthy! [5xp]", 350, 300);
   text("Eat Beef, Get Strong! [10xp]", 350, 380);
+  textSize(24);
+  text("Health Limit: " + myHero.hpMax, 350, 320);
+  text("Roll Cooldown: " + myHero.rollThreshold, 350, 400);
 }
 
 void showButtons() {

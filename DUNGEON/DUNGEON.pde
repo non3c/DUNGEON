@@ -14,6 +14,7 @@ PFont PixelBoy, NineteenNinetySeven;
 //GameObjects appearence
 PImage[] WeaponsHold;
 PImage[] Bullets;
+PImage HealthPotion;
 AnimatedGIF heroFaceLeft;
 AnimatedGIF heroFaceRight;
 AnimatedGIF heroMoveLeft;
@@ -75,9 +76,10 @@ void setup() {
   walls = loadImage("Props/Room/walls.png");
   floor = loadImage("Props/Room/floor.png");
   doors = loadImage("Props/Room/dooropen.png");
-  map = loadImage("Props/map.png");
+  map   = loadImage("Props/map.png");
 
-
+  HealthPotion = loadImage("Props/Health_Potion.png");
+  
   for (int i = 0; i<3; i++) {
     Bullets[i] = loadImage("Props/Bullets/Bullet_"+i+".png");
   }
@@ -135,10 +137,10 @@ void setup() {
 }
 
 //Dropped Items
-final int AMMO = 0;
-final int GUN = 1;
-final int HEALTH = 2;
-final int MONEY = 3;
+final int id_AMMO = 0;
+final int id_GUN = 1;
+final int id_HEALTH_POTION = 2;
+final int id_COIN = 3;
 
 //Weapons
 final int wp_Pistol = 0;
