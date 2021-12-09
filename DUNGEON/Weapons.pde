@@ -50,11 +50,11 @@ class Weapons {
     aimVector = new PVector(mouseX-myHero.pos.x, mouseY-myHero.pos.y);
     pushMatrix();
     if (aimVector.x > 0) {
-    translate(myHero.pos.x+12, myHero.pos.y+5); 
+    translate(myHero.pos.x+12, myHero.pos.y+8); 
     scale(1, 1);
     rotate(aimVector.heading());
     } else if (aimVector.x < 0) {
-    translate(myHero.pos.x-12, myHero.pos.y+5); 
+    translate(myHero.pos.x-12, myHero.pos.y+8); 
     scale(1, -1);
     rotate(-aimVector.heading());
     }

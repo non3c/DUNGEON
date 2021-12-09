@@ -20,8 +20,9 @@ class Hero extends GameObject {
     immuneThreshold = 180;
     rollTimer = 60;
     rollThreshold = 60;
-    myWeapon = new SniperRifle();
+    myWeapon = new AssultRifle();
     currentAction = heroFaceRight;
+    lightRadius = 350;
   }
 
   void show() {

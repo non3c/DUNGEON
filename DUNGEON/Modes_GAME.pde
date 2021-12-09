@@ -1,6 +1,6 @@
 void game() {
   if (pause) {
-   mode = PAUSE; 
+    mode = PAUSE;
   }
   drawRoom();
   drawGameObjects();
@@ -105,14 +105,17 @@ void drawMinimap() {
   fill(#FF9C50, 240);
   rect(950+myHero.roomX*size, 50+myHero.roomY*size, size, size);
 }
+
 void drawLightLayer() {
   ArrayList<GameObject> glowingObjects = new ArrayList<GameObject>();
   for (int i = 0; i < myObjects.size(); i ++) {
     GameObject obj = myObjects.get(i);
     if (obj.lightRadius > 0 && obj.inRoomWith(myHero)) {
-       glowingObjects.add(obj);
+      glowingObjects.add(obj);
     }
   }
+  //println(glowingObjects);
+  //println("");
   for (int i = 0; i < darkness.size(); i ++) {
     DarknessCell dark = darkness.get(i);
     dark.show(glowingObjects);

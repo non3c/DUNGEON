@@ -12,12 +12,15 @@ class DarknessCell {
   void show(ArrayList<GameObject> objects) {
     float lowestOpac = 255;
     for (int i = 0; i < objects.size(); i ++) {
+      GameObject obj = objects.get(i);
       rectMode(CORNER);
-      opacity = map(dist(x, y, objects.pos.x, objects.pos.y), 0, objects.lightRadius, 0, 200); 
-   
-      noStroke();
-      fill(#000000, lowestOpac);
-      square(x, y, size);
+      opacity = map(dist(x, y, obj.pos.x, obj.pos.y), 0, obj.lightRadius, 0, 200);
+      if (opacity <= lowestOpac) {
+        lowestOpac = opacity;
+      }
     }
+    noStroke();
+    fill(#000000, lowestOpac);
+    square(x, y, size);
   }
 }

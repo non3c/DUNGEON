@@ -1,10 +1,10 @@
 class Bullets extends GameObject {
   // instance variables
   int bulletCostume;
-  int lightRadius;
   PVector size;
   PVector nudge;
   PVector dir;
+  
   Bullets(int h, PVector aim, float sx, float sy, int d, int cos) {
     //constructor
     bulletCostume = cos;
@@ -23,7 +23,7 @@ class Bullets extends GameObject {
     size = new PVector(sx, sy);
     roomX = myHero.roomX;
     roomY = myHero.roomY;
-    lightRadius = 30;
+    lightRadius = 50;
   }
 
   void show() {

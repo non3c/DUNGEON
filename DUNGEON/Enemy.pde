@@ -8,6 +8,7 @@ class Enemy extends GameObject {
     roomY = 1;
     size = 50;
     xp = 2;
+    lightRadius = 70;
   }
 
   Enemy(int _hp, int _s, int x, int y, int dmg, int enmxp) {
@@ -19,6 +20,7 @@ class Enemy extends GameObject {
     roomY = y;
     size = _s;
     xp = enmxp;
+    lightRadius = _s + 20;
   }
 
   void show() {
